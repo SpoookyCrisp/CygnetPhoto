@@ -1,17 +1,19 @@
 import { useState } from 'react'
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Routes, Route } from 'react-router-dom';
 
-import Home from "./pages/home";
-import Portfolio from "./pages/portfolio";
-import Blog from "./pages/blog";
-import About from "./pages/about";
-import Contact from "./pages/contact";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+
+import Home from "./pages/Home";
+import Portfolio from "./pages/Portfolio";
+import Blog from "./pages/Blog";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>

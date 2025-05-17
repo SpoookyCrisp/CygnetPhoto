@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="footer p-10 bg-neutral text-neutral-content">
       <div>
-        <p className="text-lg font-bold">Cygnet Photo</p>
+        <p className="text-lg font-bold text-black">Cygnet Photo</p>
         <p>Capturing your moments. Est. 2024</p>
       </div>
       <div>

@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <div className="navbar bg-base-100 shadow-md">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case text-xl text-black">
           Cygnet Photo
         </Link>
       </div>
