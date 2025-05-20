@@ -21,7 +21,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const drawer = (
     <List>
       {menuItems.map((item) => (
-        <ListItem button key={item.text} component={Link} to={item.path} onClick={handleDrawerToggle}>
+        <ListItem
+          key={item.text}
+          component={Link}
+          to={item.path}
+          onClick={handleDrawerToggle}
+          sx={{ cursor: 'pointer' }}
+        >
           <ListItemText primary={item.text} />
         </ListItem>
       ))}
