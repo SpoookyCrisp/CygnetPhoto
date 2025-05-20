@@ -37,32 +37,34 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Cygnet Photo
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {menuItems.map((item) => (
-              <Button
-                key={item.text}
-                component={Link}
-                to={item.path}
-                sx={{ color: 'black', mx: 1 }}
-              >
-                {item.text}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
+        <Container maxWidth="lg" sx={{ mx: 'auto' }}>
+          <Toolbar sx={{ px: { xs: 0 } }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Cygnet Photo
+            </Typography>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              {menuItems.map((item) => (
+                <Button
+                  key={item.text}
+                  component={Link}
+                  to={item.path}
+                  sx={{ color: 'black', mx: 1 }}
+                >
+                  {item.text}
+                </Button>
+              ))}
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
 
       <Drawer
@@ -81,7 +83,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {drawer}
       </Drawer>
 
-      <Container component="main" sx={{ flexGrow: 1, py: 4 }}>
+      <Container 
+        component="main" 
+        maxWidth="lg" 
+        sx={{ 
+          flexGrow: 1, 
+          py: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          mx: 'auto'
+        }}
+      >
         {children}
       </Container>
 
@@ -92,9 +105,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           px: 2,
           mt: 'auto',
           backgroundColor: (theme) => theme.palette.grey[100],
+          width: '100%'
         }}
       >
-        <Container maxWidth="sm">
+        <Container maxWidth="lg" sx={{ mx: 'auto' }}>
           <Typography variant="body2" color="text.secondary" align="center">
             © {new Date().getFullYear()} Cygnet Photo. All rights reserved.
           </Typography>

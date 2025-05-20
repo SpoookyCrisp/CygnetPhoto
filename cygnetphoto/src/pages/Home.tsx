@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Button, Box, Grid } from '@mui/material';
+import { Container, Typography, Button, Box, Grid, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
@@ -8,61 +8,103 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          height: '80vh',
-          backgroundImage: 'url(/images/hero.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          position: 'relative',
+          minHeight: { xs: '60vh', md: '80vh' },
           display: 'flex',
           alignItems: 'center',
-          position: 'relative',
-          '&::before': {
-            content: '""',
+          justifyContent: 'center',
+          backgroundImage: 'url(/images/hero.jpg)', // Placeholder
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Overlay */}
+        <Box
+          sx={{
             position: 'absolute',
             top: 0,
             left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-          },
-        }}
-      >
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+            width: '100%',
+            height: '100%',
+            bgcolor: 'rgba(0,0,0,0.55)',
+            zIndex: 1,
+          }}
+        />
+        {/* Content */}
+        <Container
+          maxWidth="md"
+          sx={{
+            position: 'relative',
+            zIndex: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            py: { xs: 8, md: 12 },
+          }}
+        >
           <Typography
-            variant="h1"
+            variant="h2"
             component="h1"
             sx={{
               color: 'white',
-              fontWeight: 'bold',
+              fontWeight: 800,
               mb: 2,
-              fontSize: { xs: '2.5rem', md: '4rem' },
+              fontSize: { xs: '2.2rem', md: '3.5rem' },
+              letterSpacing: '-1px',
+              lineHeight: 1.1,
             }}
           >
             Capturing Life's Beautiful Moments
           </Typography>
           <Typography
             variant="h5"
-            sx={{ color: 'white', mb: 4, maxWidth: '600px' }}
+            sx={{
+              color: 'grey.200',
+              mb: 4,
+              maxWidth: 600,
+              fontWeight: 400,
+            }}
           >
             Professional photography services for weddings, portraits, and special events
           </Typography>
-          <Button
-            component={Link}
-            to="/contact"
-            variant="contained"
-            size="large"
-            sx={{ mr: 2 }}
-          >
-            Book a Session
-          </Button>
-          <Button
-            component={Link}
-            to="/gallery"
-            variant="outlined"
-            size="large"
-            sx={{ color: 'white', borderColor: 'white' }}
-          >
-            View Gallery
-          </Button>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+            <Button
+              component={Link}
+              to="/contact"
+              variant="contained"
+              size="large"
+              sx={{
+                fontWeight: 600,
+                px: 4,
+                py: 1.5,
+                fontSize: '1.1rem',
+                boxShadow: 2,
+              }}
+            >
+              Book a Session
+            </Button>
+            <Button
+              component={Link}
+              to="/gallery"
+              variant="outlined"
+              size="large"
+              sx={{
+                color: 'white',
+                borderColor: 'white',
+                fontWeight: 600,
+                px: 4,
+                py: 1.5,
+                fontSize: '1.1rem',
+                '&:hover': {
+                  borderColor: 'grey.300',
+                  backgroundColor: 'rgba(255,255,255,0.08)',
+                },
+              }}
+            >
+              View Gallery
+            </Button>
+          </Stack>
         </Container>
       </Box>
 
