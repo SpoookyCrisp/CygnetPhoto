@@ -22,16 +22,18 @@ const StyledCard = styled(Card)(({ theme }) => ({
 const About = () => {
   const photographers = [
     {
-      name: 'Photographer 1',
+      name: 'Dalton Locke',
       role: 'Lead Photographer',
       bio: 'With over 10 years of experience in professional photography, I specialize in capturing the perfect moments that tell your unique story. My passion for photography began when I received my first camera at the age of 15, and since then, I\'ve been dedicated to creating beautiful, timeless images.',
-      image: '/images/photographer1.jpg',
+      image: 'public/images/about/film-enhanced-bokeh IG.jpg',
+      imagePosition: 'center 10%',
     },
     {
-      name: 'Photographer 2',
+      name: 'Tiffany Locke',
       role: 'Senior Photographer',
       bio: 'I bring a fresh perspective to every shoot, combining technical expertise with creative vision. My background in fine arts allows me to approach each project with a unique artistic sensibility, ensuring that every photograph is not just a picture, but a work of art.',
-      image: '/images/photographer2.jpg',
+      image: '/public/images/about/ProImage_Maxxum9000_17.jpg',
+      imagePosition: 'center 20%',
     },
   ];
 
@@ -64,9 +66,15 @@ const About = () => {
               <StyledCard>
                 <CardMedia
                   component="img"
-                  height="400"
                   image={photographer.image}
                   alt={photographer.name}
+                  sx={{
+                    height: '500px',
+                    '& img': {
+                      objectFit: 'cover',
+                      objectPosition: photographer.imagePosition,
+                    },
+                  }}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">

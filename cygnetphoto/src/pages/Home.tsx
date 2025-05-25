@@ -13,7 +13,7 @@ const Home: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: 'url(/images/hero.jpg)', // Placeholder
+          backgroundImage: 'url(public/images/hero/000187370023.jpg)', // Placeholder
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

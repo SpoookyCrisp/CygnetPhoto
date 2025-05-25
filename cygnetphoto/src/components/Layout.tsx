@@ -1,114 +1,111 @@
-import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
+import type { ReactNode } from 'react';
+import { AppBar, Toolbar, Typography, Button, Box, Container, useTheme } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+type LayoutProps = {
+  children: ReactNode;
+};
 
-  const menuItems = [
-    { text: 'Home', path: '/' },
-    { text: 'Gallery', path: '/gallery' },
-    { text: 'Blog', path: '/blog' },
-    { text: 'About', path: '/about' },
-    { text: 'Contact', path: '/contact' },
-  ];
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <List>
-      {menuItems.map((item) => (
-        <ListItem
-          key={item.text}
-          component={Link}
-          to={item.path}
-          onClick={handleDrawerToggle}
-          sx={{ cursor: 'pointer' }}
-        >
-          <ListItemText primary={item.text} />
-        </ListItem>
-      ))}
-    </List>
-  );
+const Layout = ({ children }: LayoutProps) => {
+  const theme = useTheme();
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
-        <Container maxWidth="lg" sx={{ mx: 'auto' }}>
-          <Toolbar sx={{ px: { xs: 0 } }}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: 'none' } }}
+    <Box 
+      sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        minHeight: '100vh',
+        width: '100vw',
+        maxWidth: '100%',
+        overflowX: 'hidden',
+        backgroundColor: theme.palette.background.default,
+      }}
+    >
+      <AppBar position="static" color="default" elevation={1} sx={{ width: '100%' }}>
+        <Container maxWidth="xl" sx={{ width: '100%' }}>
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              component={RouterLink}
+              to="/"
+              sx={{
+                flexGrow: 1,
+                textDecoration: 'none',
+                color: 'inherit',
+                fontWeight: 700,
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Cygnet Photo
             </Typography>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {menuItems.map((item) => (
-                <Button
-                  key={item.text}
-                  component={Link}
-                  to={item.path}
-                  sx={{ color: 'black', mx: 1 }}
-                >
-                  {item.text}
-                </Button>
-              ))}
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <Button
+                component={RouterLink}
+                to="/"
+                color="inherit"
+                sx={{ fontWeight: 500 }}
+              >
+                Home
+              </Button>
+              <Button
+                component={RouterLink}
+                to="/gallery"
+                color="inherit"
+                sx={{ fontWeight: 500 }}
+              >
+                Gallery
+              </Button>
+              <Button
+                component={RouterLink}
+                to="/blog"
+                color="inherit"
+                sx={{ fontWeight: 500 }}
+              >
+                Blog
+              </Button>
+              <Button
+                component={RouterLink}
+                to="/about"
+                color="inherit"
+                sx={{ fontWeight: 500 }}
+              >
+                About
+              </Button>
+              <Button
+                component={RouterLink}
+                to="/contact"
+                color="inherit"
+                sx={{ fontWeight: 500 }}
+              >
+                Contact
+              </Button>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-
-      <Drawer
-        variant="temporary"
-        anchor="left"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
+      <Container
+        component="main"
+        maxWidth="xl"
         sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
-        }}
-      >
-        {drawer}
-      </Drawer>
-
-      <Container 
-        component="main" 
-        maxWidth="lg" 
-        sx={{ 
-          flexGrow: 1, 
+          flex: 1,
           py: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          mx: 'auto'
+          width: '100%',
+          px: { xs: 2, sm: 3, md: 4 },
         }}
       >
         {children}
       </Container>
-
       <Box
         component="footer"
         sx={{
           py: 3,
           px: 2,
           mt: 'auto',
-          backgroundColor: (theme) => theme.palette.grey[100],
-          width: '100%'
+          backgroundColor: theme.palette.background.paper,
+          borderTop: `1px solid ${theme.palette.divider}`,
+          width: '100%',
         }}
       >
-        <Container maxWidth="lg" sx={{ mx: 'auto' }}>
+        <Container maxWidth="xl" sx={{ width: '100%' }}>
           <Typography variant="body2" color="text.secondary" align="center">
             © {new Date().getFullYear()} Cygnet Photo. All rights reserved.
           </Typography>

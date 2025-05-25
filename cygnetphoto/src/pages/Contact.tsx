@@ -81,7 +81,7 @@ const Contact = () => {
               Phone: (555) 123-4567
             </Typography>
             <Typography variant="body1">
-              Location: Your City, State
+              Location: Lakeland, Florida
             </Typography>
           </StyledPaper>
         </Grid>

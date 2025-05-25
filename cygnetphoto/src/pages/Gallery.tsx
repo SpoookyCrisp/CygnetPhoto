@@ -92,8 +92,8 @@ const Gallery = () => {
           centered
           aria-label="gallery tabs"
         >
-          <Tab label="Photographer 1" />
-          <Tab label="Photographer 2" />
+          <Tab label="Dalton" />
+          <Tab label="Tiffany" />
         </Tabs>
       </Box>
 
