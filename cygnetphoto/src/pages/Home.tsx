@@ -113,25 +113,48 @@ const Home: React.FC = () => {
         <Typography variant="h2" component="h2" sx={{ mb: 4, textAlign: 'center' }}>
           Featured Work
         </Typography>
-        <Grid container spacing={4}>
-          {[1, 2, 3].map((item) => (
-            <Grid key={item} xs={12} md={4}>
-              <Box
-                sx={{
-                  height: 300,
-                  backgroundImage: `url(/images/featured-${item}.jpg)`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  borderRadius: 2,
-                  '&:hover': {
-                    transform: 'scale(1.02)',
-                    transition: 'transform 0.3s ease-in-out',
-                  },
-                }}
-              />
-            </Grid>
+        <Box
+          sx={{
+            display: 'flex',
+            overflowX: 'auto',
+            gap: 2,
+            pb: 2,
+            '&::-webkit-scrollbar': {
+              height: '8px',
+            },
+            '&::-webkit-scrollbar-track': {
+              background: 'rgba(0,0,0,0.1)',
+              borderRadius: '4px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: 'rgba(0,0,0,0.2)',
+              borderRadius: '4px',
+              '&:hover': {
+                background: 'rgba(0,0,0,0.3)',
+              },
+            },
+          }}
+        >
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <Box
+              key={item}
+              sx={{
+                flex: '0 0 auto',
+                width: { xs: '280px', sm: '320px', md: '400px' },
+                height: { xs: '280px', sm: '320px', md: '400px' },
+                backgroundImage: `url(/images/featured/featured-${item}.jpg)`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: 2,
+                transition: 'transform 0.3s ease-in-out',
+                cursor: 'pointer',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                },
+              }}
+            />
           ))}
-        </Grid>
+        </Box>
       </Container>
 
       {/* Call to Action */}
