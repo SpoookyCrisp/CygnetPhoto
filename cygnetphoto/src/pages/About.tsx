@@ -26,7 +26,7 @@ const About = () => {
       role: 'Lead Photographer',
       bio: 'With over 10 years of experience in professional photography, I specialize in capturing the perfect moments that tell your unique story. My passion for photography began when I received my first camera at the age of 15, and since then, I\'ve been dedicated to creating beautiful, timeless images.',
       image: 'public/images/about/film-enhanced-bokeh IG.jpg',
-      imagePosition: 'center 10%',
+      imagePosition: 'center 20%',
     },
     {
       name: 'Tiffany Locke',
@@ -51,7 +51,7 @@ const About = () => {
         <Typography variant="body1" paragraph sx={{ mt: 4, mb: 6 }}>
           Welcome to Cygnet Photo, where we transform ordinary moments into extraordinary memories. 
           Our team of professional photographers is dedicated to capturing the essence of your special 
-          moments with creativity, passion, and technical excellence. Whether it's a wedding, portrait 
+          moments with creativity, passion, and technical excellence. Whether it's an event, portrait 
           session, or commercial project, we approach each assignment with the same level of dedication 
           and attention to detail.
         </Typography>
@@ -69,7 +69,7 @@ const About = () => {
                   image={photographer.image}
                   alt={photographer.name}
                   sx={{
-                    height: '500px',
+                    height: '600px',
                     '& img': {
                       objectFit: 'cover',
                       objectPosition: photographer.imagePosition,

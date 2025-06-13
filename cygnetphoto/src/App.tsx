@@ -8,6 +8,9 @@ import Blog from './pages/Blog';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
+import Photography from './pages/services/Photography';
+import CameraSales from './pages/services/CameraSales';
+import CameraService from './pages/services/CameraService';
 import './App.css';
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/photography" element={<Photography />} />
+              <Route path="/services/camera-sales" element={<CameraSales />} />
+              <Route path="/services/camera-service" element={<CameraService />} />
             </Routes>
           </main>
         </div>

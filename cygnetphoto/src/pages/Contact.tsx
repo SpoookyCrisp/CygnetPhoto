@@ -20,7 +20,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    subject: '',
     message: '',
   });
 
@@ -41,7 +41,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
     setSnackbar({
       open: true,
       message: 'Thank you for your message! We will get back to you soon.',
@@ -50,7 +49,7 @@ const Contact = () => {
     setFormData({
       name: '',
       email: '',
-      phone: '',
+      subject: '',
       message: '',
     });
   };
@@ -66,35 +65,48 @@ const Contact = () => {
       </Typography>
 
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+        {/* Contact Info and Map */}
+        <Grid item xs={12} md={5}>
           <StyledPaper elevation={3}>
             <Typography variant="h5" gutterBottom>
-              Get in Touch
-            </Typography>
-            <Typography variant="body1" paragraph>
-              Have a question or want to book a session? Fill out the form and we'll get back to you as soon as possible.
+              Contact Information
             </Typography>
             <Typography variant="body1" paragraph>
               Email: info@cygnetphoto.com
             </Typography>
             <Typography variant="body1" paragraph>
-              Phone: (555) 123-4567
+              Location: Lakeland, Florida, United States
             </Typography>
-            <Typography variant="body1">
-              Location: Lakeland, Florida
+            <Typography variant="body1" paragraph>
+              Business Hours: Mon – Fri: 9:00 AM – 6:00 PM EST
             </Typography>
+          </StyledPaper>
+          <StyledPaper elevation={3} sx={{ mt: 2, p: 0, overflow: 'hidden' }}>
+            <iframe
+              title="Location"
+              src="https://www.google.com/maps?q=Lakeland,Florida,United+States&output=embed"
+              width="100%"
+              height="200"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+            />
           </StyledPaper>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        {/* Contact Form */}
+        <Grid item xs={12} md={7}>
           <StyledPaper elevation={3}>
+            <Typography variant="h5" gutterBottom>
+              Send Us a Message
+            </Typography>
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
-                    label="Name"
+                    label="Full Name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -104,7 +116,7 @@ const Contact = () => {
                   <TextField
                     required
                     fullWidth
-                    label="Email"
+                    label="Email Address"
                     name="email"
                     type="email"
                     value={formData.email}
@@ -113,10 +125,11 @@ const Contact = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    required
                     fullWidth
-                    label="Phone"
-                    name="phone"
-                    value={formData.phone}
+                    label="Subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                   />
                 </Grid>

@@ -1,16 +1,25 @@
-import { AppBar, Toolbar, Button, Box, useTheme, Stack } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, useTheme, Stack, Menu, MenuItem } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useTheme as useCustomTheme } from '../context/ThemeContext';
 import { ThemeToggle } from './ThemeToggle';
+import { useState } from 'react';
 
 const Navbar = () => {
   const theme = useTheme();
   const { isDarkMode } = useCustomTheme();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Gallery', path: '/gallery' },
-    { label: 'Services', path: '/services' },
+    // Services will be handled as a dropdown
     { label: 'Blog', path: '/blog' },
     { label: 'About', path: '/about' },
     { label: 'Contact', path: '/contact' }
@@ -90,6 +99,44 @@ const Navbar = () => {
                 {item.label}
               </Button>
             ))}
+            {/* Services Dropdown */}
+            <Button
+              sx={{
+                color: isDarkMode ? 'text.primary' : 'text.primary',
+                height: 40,
+                px: 2,
+                transition: 'all 0.3s ease-in-out',
+                '&:hover': {
+                  bgcolor: isDarkMode ? 'action.hover' : 'action.hover',
+                },
+              }}
+              onMouseEnter={handleMenuOpen}
+              onClick={handleMenuOpen}
+              aria-controls={Boolean(anchorEl) ? 'services-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={Boolean(anchorEl) ? 'true' : undefined}
+            >
+              Services
+            </Button>
+            <Menu
+              id="services-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              MenuListProps={{ onMouseLeave: handleMenuClose }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+            >
+              <MenuItem component={RouterLink} to="/services/photography" onClick={handleMenuClose}>
+                Photography
+              </MenuItem>
+              <MenuItem component={RouterLink} to="/services/camera-sales" onClick={handleMenuClose}>
+                Camera Sales
+              </MenuItem>
+              <MenuItem component={RouterLink} to="/services/camera-service" onClick={handleMenuClose}>
+                Camera Service
+              </MenuItem>
+            </Menu>
             <Box 
               sx={{ 
                 display: 'flex',
