@@ -135,7 +135,7 @@ const Home: React.FC = () => {
             },
           }}
         >
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+          {[1, 2, 3, 4, 5, 6, 7].map((item) => (
             <Box
               key={item}
               sx={{

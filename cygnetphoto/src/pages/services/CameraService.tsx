@@ -21,6 +21,8 @@ const CameraService = () => {
         backgroundImage: 'url(/images/services/camera-service-bg.jpg)', // Your image path
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -34,7 +36,7 @@ const CameraService = () => {
       }}
     >
       <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
-        <Typography variant="h2" component="h1" gutterBottom sx={{ textAlign: 'center', mb: 6 }}>
+        <Typography variant="h2" component="h1" gutterBottom sx={{ textAlign: 'center', mb: 6, color: '#fff', position: 'relative', zIndex: 3 }}>
           Camera Service
         </Typography>
         <Box>
@@ -43,7 +45,7 @@ const CameraService = () => {
               <Grid item xs={12} md={8} key={index}>
                 <Card sx={{ height: '100%', bgcolor: isDarkMode ? 'background.paper' : 'background.default', transition: 'transform 0.2s', '&:hover': { transform: 'translateY(-4px)' } }}>
                   <CardContent>
-                    <Typography variant="h5" component="h3" gutterBottom>
+                    <Typography variant="h5" component="h3" gutterBottom sx={{ color: '#fff !important' }}>
                       {service.title}
                     </Typography>
                     <Typography variant="body1" paragraph>
@@ -131,7 +133,7 @@ const CameraService = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Most cameras and lenses can be repaired, however 
+                Most cameras and lenses can be repaired, however diagnostics must be completed to determine if repair is economical.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -141,7 +143,7 @@ const CameraService = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                We like texting for communication, but email is totally fine too if that's your preference.
+                All communication regarding repair services will be conducted over email.
               </Typography>
             </AccordionDetails>
           </Accordion>
