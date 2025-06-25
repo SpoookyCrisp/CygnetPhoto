@@ -66,15 +66,15 @@ const Gallery = () => {
   // Sample gallery data - replace with your actual photos
   const galleryData = {
     photographer1: [
-      { img: '/images/gallery1.jpg', title: 'Nature Scene 1' },
-      { img: '/images/gallery2.jpg', title: 'Portrait 1' },
-      { img: '/images/gallery3.jpg', title: 'Event 1' },
+      { img: '/images/gallery/gallery1.jpg'},
+      { img: '/images/gallery/gallery2.jpg'},
+      { img: '/images/gallery/gallery3.jpg'},
       // Add more photos
     ],
     photographer2: [
-      { img: '/images/gallery4.jpg', title: 'Nature Scene 2' },
-      { img: '/images/gallery5.jpg', title: 'Portrait 2' },
-      { img: '/images/gallery6.jpg', title: 'Event 2' },
+      { img: '/images/gallery/gallery4.jpg'},
+      { img: '/images/gallery/gallery5.jpg'},
+      { img: '/images/gallery/gallery6.jpg'},
       // Add more photos
     ],
   };

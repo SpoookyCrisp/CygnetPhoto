@@ -25,27 +25,27 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
-      title: 'The Art of Wedding Photography',
-      excerpt: 'Discover the secrets behind capturing perfect wedding moments and creating timeless memories.',
+      title: 'Nikon S3',
+      excerpt: 'A timeless classic from the late 1950s',
       image: '/images/blog1.jpg',
-      date: 'March 15, 2024',
-      category: 'Wedding',
+      date: 'June 23, 2025',
+      category: 'Gear',
     },
     {
       id: 2,
       title: 'Mastering Portrait Photography',
       excerpt: 'Learn essential techniques for creating stunning portraits that capture the essence of your subjects.',
       image: '/images/blog2.jpg',
-      date: 'March 10, 2024',
+      date: 'June 10, 2025',
       category: 'Portrait',
     },
     {
       id: 3,
-      title: 'Photography Equipment Guide',
-      excerpt: 'A comprehensive guide to choosing the right equipment for different types of photography.',
+      title: 'Photography Gear Guide',
+      excerpt: 'A comprehensive guide to choosing the right gear for different types of photography.',
       image: '/images/blog3.jpg',
-      date: 'March 5, 2024',
-      category: 'Equipment',
+      date: 'June 5, 2025',
+      category: 'Gear',
     },
   ];
 
@@ -98,12 +98,6 @@ const Blog = () => {
             </Grid>
           ))}
         </Grid>
-
-        <Box sx={{ mt: 6, textAlign: 'center' }}>
-          <Typography variant="body1" color="text.secondary">
-            More blog posts coming soon...
-          </Typography>
-        </Box>
       </Container>
     </Box>
   );
